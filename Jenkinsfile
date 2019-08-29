@@ -8,8 +8,13 @@ pipeline {
   	stage('Build') {
 	  steps {
 	  sh 'mvn clean package'
-	  deploy adapters: [tomcat8(credentialsId: 'admin', path: '', url: 'http://localhost:8010')], contextPath: null, war: 'target/Jenkins.war'
+	  archiveArtifacts 'target/Jenkins.war'
 	  }
   	}
+	  stage('Deploy'){
+		  steps {
+			  deploy adapters: [tomcat8(credentialsId: 'admin', path: '', url: 'http://localhost:8010')], contextPath: null, war: 'target/Jenkins.war'
+		  }
+	  }
   }
 }
