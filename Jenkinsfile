@@ -5,6 +5,12 @@ pipeline {
 		maven "MAVEN_HOME"
 	}
   stages {
+	  stage('Test'){
+		  steps{
+			  sh 'java -version'
+			  sh 'mvn -version'
+		  }
+	  }
   	stage('Build') {
 	  steps {
 	  sh 'mvn clean package'
