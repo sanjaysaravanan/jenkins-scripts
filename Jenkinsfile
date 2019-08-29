@@ -8,7 +8,7 @@ pipeline {
   	stage('Build') {
 	  steps {
 	  sh 'mvn clean package'
-	  archiveArtifacts 'target/Jenkins.war'
+	 // archiveArtifacts 'target/Jenkins.war'
 	  }
   	}
 	  stage('Deploy'){
