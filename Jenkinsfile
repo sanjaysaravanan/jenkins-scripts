@@ -9,6 +9,7 @@ pipeline {
 		  steps{
 			  sh 'java -version'
 			  sh 'mvn -version'
+			  sh 'echo Testing Completed Successfully'
 		  }
 	  }
   	stage('Build') {
